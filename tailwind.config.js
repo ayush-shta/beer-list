@@ -9,7 +9,8 @@ module.exports = {
       secondary: '#fb923c',
       gray: '#8492a6',
       'gray-dark': '#273444',
-      'gray-light': '#d3dce6'
+      'gray-light': '#e5e7eb',
+      error: '#ef4444'
     }
   },
   plugins: [require('@tailwindcss/container-queries')]

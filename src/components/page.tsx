@@ -5,7 +5,7 @@ interface IPageProps {
 }
 
 function Page({ children }: IPageProps) {
-  return <div className="max-w-full mx-auto p-8">{children}</div>;
+  return <div className="max-w-full m-8">{children}</div>;
 }
 
 export default Page;

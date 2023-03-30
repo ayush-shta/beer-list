@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import Page from 'src/components/page';
 import { beerListFilterParam, beerListSearchParam } from '../beer-list.constants';
 import { useBeerListSearchParams } from '../hooks/use-beer-list-search-params';
 
