@@ -2,6 +2,7 @@ import React from 'react';
 import { InfiniteData } from '@tanstack/react-query';
 
 import { IBeer } from '../../beer.types';
+import Page from '../../../../components/page';
 import BeerItem from '../../components/beer-item';
 import LoadMore from '../../../../components/load-more';
 import { useFetchBeerList } from './hooks/use-beer-list-request';
@@ -19,14 +20,14 @@ function BeerList() {
   }
 
   return (
-    <div className="max-w-full mx-auto p-8">
+    <Page>
       <main className="@container">
         <div className="@5xl:grid @5xl:grid-cols-2">
           <BeerListComponent beerListData={beerListData} />
         </div>
         <LoadMore handleLoadMore={fetchNextPage} isLoading={isFetchingNextPage} />
       </main>
-    </div>
+    </Page>
   );
 }
 
