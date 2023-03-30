@@ -2,6 +2,7 @@ import React from 'react';
 import { InfiniteData } from '@tanstack/react-query';
 
 import Page from 'src/components/page';
+import { IBeer } from '../../beer.types';
 import LoadMore from 'src/components/load-more';
 import BeerItem from '../../components/beer-item';
 import LoadingIndicator from 'src/components/loading-indicator';
