@@ -19,9 +19,11 @@ function BeerList() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto p-8">
-      <main className="container">
-        <BeerListComponent beerListData={beerListData} />
+    <div className="max-w-full mx-auto p-8">
+      <main className="@container">
+        <div className="@5xl:grid @5xl:grid-cols-2">
+          <BeerListComponent beerListData={beerListData} />
+        </div>
         <LoadMore handleLoadMore={fetchNextPage} isLoading={isFetchingNextPage} />
       </main>
     </div>

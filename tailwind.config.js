@@ -9,5 +9,5 @@ module.exports = {
       secondary: '#fb923c'
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/container-queries')]
 };
