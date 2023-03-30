@@ -1,12 +1,17 @@
 import React from 'react';
+import { InfiniteData } from '@tanstack/react-query';
+
+import { IBeer } from '../../beer.types';
 import BeerItem from '../../components/beer-item';
+import LoadMore from '../../../../components/load-more';
 import { useFetchBeerList } from './hooks/use-beer-list-request';
+import LoadingIndicator from '../../../../components/loading-indicator';
 
 function BeerList() {
   const { data: beerListData, isLoading, error, fetchNextPage, isFetchingNextPage } = useFetchBeerList();
 
   if (isLoading) {
-    return <p>isLoading...</p>;
+    return <LoadingIndicator />;
   }
 
   if (!beerListData) {
@@ -16,21 +21,24 @@ function BeerList() {
   return (
     <div className="max-w-5xl mx-auto p-8">
       <main className="container">
-        {beerListData.pages.map((group, index) => (
-          <React.Fragment key={index}>
-            {group.map((beer) => (
-              <BeerItem key={beer.id} beer={beer} />
-            ))}
-          </React.Fragment>
-        ))}
-        <p
-          className="flex justify-center text-sm text-primary font-semibold cursor-pointer"
-          onClick={() => fetchNextPage()}
-        >
-          Load More
-        </p>
+        <BeerListComponent beerListData={beerListData} />
+        <LoadMore handleLoadMore={fetchNextPage} isLoading={isFetchingNextPage} />
       </main>
     </div>
+  );
+}
+
+function BeerListComponent({ beerListData }: { beerListData: InfiniteData<IBeer[]> }) {
+  return (
+    <>
+      {beerListData.pages.map((group, index) => (
+        <React.Fragment key={index}>
+          {group.map((beer) => (
+            <BeerItem key={beer.id} beer={beer} />
+          ))}
+        </React.Fragment>
+      ))}
+    </>
   );
 }
 
