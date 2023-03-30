@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
-import Card from '../../../components/card';
 
+import Card from 'src/components/card';
 import { IBeer } from '../beer.types';
-
 interface IBeerProps {
   beer: IBeer;
 }
