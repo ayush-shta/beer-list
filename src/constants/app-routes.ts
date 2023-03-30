@@ -1,3 +1,3 @@
 export const appRoutes = {
-  root: "/",
+  root: '/'
 };
