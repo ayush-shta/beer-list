@@ -6,7 +6,10 @@ module.exports = {
     colors: {
       primary: '#2b65bd',
       'primary-light': '#eff6ff',
-      secondary: '#fb923c'
+      secondary: '#fb923c',
+      gray: '#8492a6',
+      'gray-dark': '#273444',
+      'gray-light': '#d3dce6'
     }
   },
   plugins: [require('@tailwindcss/container-queries')]
