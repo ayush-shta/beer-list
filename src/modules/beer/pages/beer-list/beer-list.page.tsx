@@ -1,25 +1,34 @@
 import React from 'react';
-import Card from '../../../../components/card';
 import BeerItem from '../../components/beer-item';
 import { useFetchBeerList } from './hooks/use-beer-list-request';
 
 function BeerList() {
-  const { data: beerList, isLoading, error } = useFetchBeerList(1);
+  const { data: beerListData, isLoading, error, fetchNextPage, isFetchingNextPage } = useFetchBeerList();
 
   if (isLoading) {
     return <p>isLoading...</p>;
   }
 
-  if (!beerList) {
+  if (!beerListData) {
     return <p>no data...</p>;
   }
 
   return (
     <div className="max-w-5xl mx-auto p-8">
       <main className="container">
-        {beerList.map((beer) => (
-          <BeerItem key={beer.id} beer={beer} />
+        {beerListData.pages.map((group, index) => (
+          <React.Fragment key={index}>
+            {group.map((beer) => (
+              <BeerItem key={beer.id} beer={beer} />
+            ))}
+          </React.Fragment>
         ))}
+        <p
+          className="flex justify-center text-sm text-primary font-semibold cursor-pointer"
+          onClick={() => fetchNextPage()}
+        >
+          Load More
+        </p>
       </main>
     </div>
   );

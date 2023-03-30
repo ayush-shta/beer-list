@@ -1,12 +1,15 @@
 import { AxiosError } from 'axios';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 
 import { getAllBeers } from '../../../beer.service';
 import { IBeer } from '../../../beer.types';
 
-export const useFetchBeerList = (page: number, perPage?: number) => {
-  return useQuery<IBeer[], AxiosError>({
+export const useFetchBeerList = (perPage?: number) => {
+  return useInfiniteQuery<IBeer[], AxiosError>({
     queryKey: ['beer-list'],
-    queryFn: () => getAllBeers(page, perPage)
+    queryFn: getAllBeers,
+    getNextPageParam: (_lastPage, pages) => {
+      return pages.length + 1;
+    }
   });
 };
