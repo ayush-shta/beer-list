@@ -5,7 +5,11 @@ interface IPageProps {
 }
 
 function Page({ children }: IPageProps) {
-  return <div className="max-w-full mx-16 my-8">{children}</div>;
+  return (
+    <div className="@container">
+      <div className="max-w-full @xl:mx-16 mx-4 @xl:my-8 my-4">{children}</div>
+    </div>
+  );
 }
 
 export default Page;

@@ -19,7 +19,7 @@ function BeerListNav() {
         <NavItem title="All Beers" handleClick={onAllBeersClicked} isSelected={!isMyBeersSelected} />
         <NavItem title="My Beers" handleClick={myBeersClicked} isSelected={isMyBeersSelected} />
       </div>
-      <AppButton onClick={showAddBeerForm}>Add a new beer</AppButton>
+      {isMyBeersSelected && <AppButton onClick={showAddBeerForm}>Add a new beer</AppButton>}
     </nav>
   );
 }
@@ -32,7 +32,6 @@ interface INavItemProps {
 
 const NavItem = (props: INavItemProps) => {
   const { title, handleClick, isSelected } = props;
-
   const navItemClass = classnames('text-lg font-semibold', { 'text-gray': !isSelected });
 
   return (
