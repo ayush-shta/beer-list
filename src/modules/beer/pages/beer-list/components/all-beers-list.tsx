@@ -8,6 +8,7 @@ import BeerItem from 'src/modules/beer/components/beer-item';
 import LoadingIndicator from 'src/components/loading-indicator';
 import { useFetchBeerList } from '../hooks/use-beer-list-request';
 import ErrorMessage from 'src/components/error-message';
+import BeerListWrapper from './beer-list-wrapper';
 
 function AllBeerList() {
   const { data: beerListInfiniteData, isLoading, error, fetchNextPage, isFetchingNextPage } = useFetchBeerList();
@@ -25,10 +26,10 @@ function AllBeerList() {
   }
 
   return (
-    <main className="@container">
-      <div className="@5xl:grid @5xl:grid-cols-2 grid gap-8 mb-4">
+    <main>
+      <BeerListWrapper>
         <BeerListComponent beerListInfiniteData={beerListInfiniteData} />
-      </div>
+      </BeerListWrapper>
       <LoadMore handleLoadMore={fetchNextPage} isLoading={isFetchingNextPage} />
     </main>
   );

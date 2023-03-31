@@ -1,6 +1,7 @@
 import React from 'react';
 
 import EmptyMyBeerList from './empty-my-beer-list';
+import BeerListWrapper from './beer-list-wrapper';
 import BeerItem from 'src/modules/beer/components/beer-item';
 import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 
@@ -12,10 +13,12 @@ function MyBeersList() {
   }
 
   return (
-    <main className="@container">
-      {myBeers.map((beer) => (
-        <BeerItem key={beer.id} beer={beer} />
-      ))}
+    <main>
+      <BeerListWrapper>
+        {myBeers.map((beer) => (
+          <BeerItem key={beer.id} beer={beer} />
+        ))}
+      </BeerListWrapper>
     </main>
   );
 }
