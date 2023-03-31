@@ -6,18 +6,15 @@ import MyBeersList from './components/my-beers-list';
 import BeerListNav from './components/beer-list-nav';
 import { useBeerListSearchParams } from './hooks/use-beer-list-search-params';
 import AddNewBeerDialog from './components/add-new-beer-dialog';
-import { BeerListContextProvider } from './beer-list.context';
 
 function BeerList() {
   const { isMyBeersSelected } = useBeerListSearchParams();
 
   return (
     <Page>
-      <BeerListContextProvider>
-        <BeerListNav />
-        {isMyBeersSelected ? <MyBeersList /> : <AllBeerList />}
-        <AddNewBeerDialog />
-      </BeerListContextProvider>
+      <BeerListNav />
+      {isMyBeersSelected ? <MyBeersList /> : <AllBeerList />}
+      <AddNewBeerDialog />
     </Page>
   );
 }

@@ -2,13 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 
 import AppButton from 'src/components/app-button';
-import { useBeerListContext } from '../beer-list.context';
 import { useBeerListSearchParams } from '../hooks/use-beer-list-search-params';
 import { beerListFilterParam, beerListSearchParam } from '../beer-list.constants';
+import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 
 function BeerListNav() {
   const { isMyBeersSelected, setSearchParams } = useBeerListSearchParams();
-  const { showAddBeerForm } = useBeerListContext();
+  const { showAddBeerForm } = useAddBeerDialogStore();
 
   const onAllBeersClicked = () => setSearchParams({ [beerListSearchParam.filter]: beerListFilterParam.allBeers });
   const myBeersClicked = () => setSearchParams({ [beerListSearchParam.filter]: beerListFilterParam.myBeers });

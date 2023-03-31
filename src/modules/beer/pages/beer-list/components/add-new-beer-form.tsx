@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form } from 'formik';
 
 import AppButton from 'src/components/app-button';
-import InputField from 'src/components/formik/InputField';
-import { useBeerListContext } from '../beer-list.context';
-import { useByBeerListStore } from '../stores/use-my-beerlist.store';
 import { IBeer } from 'src/modules/beer/beer.types';
+import InputField from 'src/components/formik/InputField';
+import { useByBeerListStore } from '../stores/use-my-beerlist.store';
+import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 
 interface IFormValues {
   beerName: string;
@@ -28,7 +28,7 @@ const AddNewBeerSchema = Yup.object().shape({
 });
 
 function AddNewBeerForm() {
-  const { hideAddBeerForm } = useBeerListContext();
+  const { hideAddBeerForm } = useAddBeerDialogStore();
   const addBeer = useByBeerListStore((state) => state.addBeer);
 
   return (
@@ -57,7 +57,7 @@ function AddNewBeerForm() {
           <InputField name="description" labelText="Description" isRequired as="textarea" />
 
           <div className="flex gap-4 justify-end">
-            <AppButton type="button" disabled={isSubmitting} buttonstyle="secondary" onClick={hideAddBeerForm}>
+            <AppButton type="button" buttonstyle="secondary" onClick={hideAddBeerForm}>
               Cancel
             </AppButton>
 

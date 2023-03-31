@@ -2,11 +2,11 @@ import React from 'react';
 
 import ModalDialog from 'src/components/ModalDialog';
 import AddNewBeerForm from './add-new-beer-form';
-import { useBeerListContext } from '../beer-list.context';
 import houzzBeerImage from 'src/assets/houzz-beer.jpg';
+import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 
 function AddNewBeerDialog() {
-  const { isAddBeerFormVisible } = useBeerListContext();
+  const { isAddBeerFormVisible } = useAddBeerDialogStore();
 
   return (
     <ModalDialog isOpen={isAddBeerFormVisible} title={'Add a New Beer'}>
