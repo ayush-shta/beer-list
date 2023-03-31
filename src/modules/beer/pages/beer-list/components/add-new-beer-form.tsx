@@ -41,7 +41,7 @@ function AddNewBeerForm() {
           <InputField name="description" labelText="Description" isRequired as="textarea" />
 
           <div className="flex gap-4 justify-end">
-            <AppButton disabled={isSubmitting} buttonType="secondary">
+            <AppButton type="button" disabled={isSubmitting} buttonstyle="secondary">
               Cancel
             </AppButton>
 

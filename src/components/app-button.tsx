@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface IAppButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonType?: 'primary' | 'secondary';
+  buttonstyle?: 'primary' | 'secondary';
 }
 
 function AppButton(props: IAppButtonProps) {
-  const { buttonType } = props;
+  const { buttonstyle } = props;
 
-  if (buttonType === 'secondary') {
+  if (buttonstyle === 'secondary') {
     return <SecondaryButton {...props} />;
   }
 
