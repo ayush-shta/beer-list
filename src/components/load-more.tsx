@@ -15,10 +15,12 @@ function LoadMore(props: ILoadMoreProps) {
   }
 
   return (
-    <p className="flex justify-center text-sm text-primary font-semibold cursor-pointer" onClick={handleLoadMore}>
-      Load More
-      <LoadMoreIndicator />
-    </p>
+    <div className="flex justify-center">
+      <button className="flex text-sm text-primary font-semibold cursor-pointer p-2" onClick={handleLoadMore}>
+        Load More
+        <LoadMoreIndicator />
+      </button>
+    </div>
   );
 }
 

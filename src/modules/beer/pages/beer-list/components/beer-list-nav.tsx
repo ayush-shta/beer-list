@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import { beerListFilterParam, beerListSearchParam } from '../beer-list.constants';
 import { useBeerListSearchParams } from '../hooks/use-beer-list-search-params';
+import AppButton from 'src/components/app-button';
 
 function BeerListNav() {
   const { isMyBeersSelected, setSearchParams } = useBeerListSearchParams();
@@ -11,9 +12,12 @@ function BeerListNav() {
   const myBeersClicked = () => setSearchParams({ [beerListSearchParam.filter]: beerListFilterParam.myBeers });
 
   return (
-    <nav className="flex gap-4 ml-4">
-      <NavItem title="All Beers" handleClick={onAllBeersClicked} isSelected={!isMyBeersSelected} />
-      <NavItem title="My Beers" handleClick={myBeersClicked} isSelected={isMyBeersSelected} />
+    <nav className="flex mb-4 items-center justify-between">
+      <div className="flex gap-4">
+        <NavItem title="All Beers" handleClick={onAllBeersClicked} isSelected={!isMyBeersSelected} />
+        <NavItem title="My Beers" handleClick={myBeersClicked} isSelected={isMyBeersSelected} />
+      </div>
+      <AppButton className="">Add a new beer</AppButton>
     </nav>
   );
 }

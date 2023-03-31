@@ -1,12 +1,10 @@
 import React from 'react';
 
-interface ICardProps {
-  children: React.ReactNode;
-}
+interface ICardProps extends React.ButtonHTMLAttributes<HTMLDivElement> {}
 
-function Card({ children }: ICardProps) {
+function Card(props: ICardProps) {
   return (
-    <div className="rounded overflow-hidden shadow-lg p-6 hover:bg-primary-light m-4 cursor-pointer">{children}</div>
+    <div {...props} className="rounded overflow-hidden shadow-lg p-6 hover:bg-primary-extra-light cursor-pointer" />
   );
 }
 

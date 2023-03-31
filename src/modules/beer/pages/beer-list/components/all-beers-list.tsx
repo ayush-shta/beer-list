@@ -26,7 +26,7 @@ function AllBeerList() {
 
   return (
     <main className="@container">
-      <div className="@5xl:grid @5xl:grid-cols-2">
+      <div className="@5xl:grid @5xl:grid-cols-2 grid gap-8 mb-4">
         <BeerListComponent beerListInfiniteData={beerListInfiniteData} />
       </div>
       <LoadMore handleLoadMore={fetchNextPage} isLoading={isFetchingNextPage} />
