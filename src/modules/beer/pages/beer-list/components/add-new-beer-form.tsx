@@ -3,8 +3,8 @@ import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form } from 'formik';
 
-import AppButton from 'src/components/app-button';
 import { IBeer } from 'src/modules/beer/beer.types';
+import FormFooter from 'src/components/formik/FormFooter';
 import InputField from 'src/components/formik/InputField';
 import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
@@ -55,15 +55,7 @@ function AddNewBeerForm() {
           <InputField name="tagLine" labelText="Tagline" isRequired />
           <InputField name="description" labelText="Description" isRequired as="textarea" />
 
-          <div className="flex gap-4 justify-end">
-            <AppButton type="button" buttonstyle="secondary" onClick={hideAddBeerForm}>
-              Cancel
-            </AppButton>
-
-            <AppButton type="submit" disabled={isSubmitting}>
-              Save
-            </AppButton>
-          </div>
+          <FormFooter isSubmitDisabled={isSubmitting} onCancel={hideAddBeerForm} />
         </Form>
       )}
     </Formik>
