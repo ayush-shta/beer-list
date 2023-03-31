@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 
 import { IBeer } from 'src/modules/beer/beer.types';
 import FormFooter from 'src/components/formik/form-footer';
-import InputField from 'src/components/formik/input-field';
+import InputField from 'src/components/formik/form-input-field';
 import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 

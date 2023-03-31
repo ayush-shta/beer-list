@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, FieldAttributes } from 'formik';
 
-import Label from './label';
+import Label from './form-label';
 import FormErrorMessage from './form-error-message';
 
 interface IInputFieldProps extends FieldAttributes<any> {
