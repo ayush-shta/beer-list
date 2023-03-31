@@ -17,8 +17,6 @@ function AppButton(props: IAppButtonProps) {
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 function PrimaryButton(props: IButtonProps) {
-  console.log('props', props);
-
   return (
     <button
       {...props}
