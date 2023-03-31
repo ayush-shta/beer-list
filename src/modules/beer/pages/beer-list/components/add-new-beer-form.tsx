@@ -1,9 +1,10 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
+import { Formik, Form, FormikHelpers } from 'formik';
 
 import AppButton from 'src/components/app-button';
 import InputField from 'src/components/formik/InputField';
+import { useBeerListContext } from '../beer-list.context';
 
 interface IFormValues {
   beerName: string;
@@ -32,6 +33,8 @@ const handleSubmit = (values: IFormValues, { setSubmitting }: FormikHelpers<IFor
 };
 
 function AddNewBeerForm() {
+  const { hideAddBeerForm } = useBeerListContext();
+
   return (
     <Formik initialValues={initialFormValues} validationSchema={AddNewBeerSchema} onSubmit={handleSubmit}>
       {({ isSubmitting }) => (
@@ -41,7 +44,7 @@ function AddNewBeerForm() {
           <InputField name="description" labelText="Description" isRequired as="textarea" />
 
           <div className="flex gap-4 justify-end">
-            <AppButton type="button" disabled={isSubmitting} buttonstyle="secondary">
+            <AppButton type="button" disabled={isSubmitting} buttonstyle="secondary" onClick={hideAddBeerForm}>
               Cancel
             </AppButton>
 

@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
-import { beerListFilterParam, beerListSearchParam } from '../beer-list.constants';
-import { useBeerListSearchParams } from '../hooks/use-beer-list-search-params';
 import AppButton from 'src/components/app-button';
-import ModalDialog from 'src/components/ModalDialog';
-import AddNewBeerForm from './add-new-beer-form';
+import { useBeerListContext } from '../beer-list.context';
+import { useBeerListSearchParams } from '../hooks/use-beer-list-search-params';
+import { beerListFilterParam, beerListSearchParam } from '../beer-list.constants';
 
 function BeerListNav() {
   const { isMyBeersSelected, setSearchParams } = useBeerListSearchParams();
-  const [isAddBeerFormVisible, setIsAddBeerFormVisible] = useState(false);
+  const { showAddBeerForm } = useBeerListContext();
 
   const onAllBeersClicked = () => setSearchParams({ [beerListSearchParam.filter]: beerListFilterParam.allBeers });
   const myBeersClicked = () => setSearchParams({ [beerListSearchParam.filter]: beerListFilterParam.myBeers });
@@ -20,11 +19,7 @@ function BeerListNav() {
         <NavItem title="All Beers" handleClick={onAllBeersClicked} isSelected={!isMyBeersSelected} />
         <NavItem title="My Beers" handleClick={myBeersClicked} isSelected={isMyBeersSelected} />
       </div>
-      <AppButton onClick={() => setIsAddBeerFormVisible(true)}>Add a new beer</AppButton>
-
-      <ModalDialog isOpen={isAddBeerFormVisible} title={'Add a New Beer'}>
-        <AddNewBeerForm />
-      </ModalDialog>
+      <AppButton onClick={showAddBeerForm}>Add a new beer</AppButton>
     </nav>
   );
 }

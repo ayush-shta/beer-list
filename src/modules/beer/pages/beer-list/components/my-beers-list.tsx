@@ -1,22 +1,23 @@
 import React from 'react';
 
 import EmptyMessage from 'src/components/empty-message';
-import AddNewBeerForm from './add-new-beer-form';
+import { useBeerListContext } from '../beer-list.context';
 
 function MyBeersList() {
+  const { showAddBeerForm } = useBeerListContext();
+
   if (false) {
     return (
       <EmptyMessage message="Nothing to see yet.">
-        <button className="text-primary">Click here</button> to add your first beer!
+        <button className="text-primary" onClick={showAddBeerForm}>
+          Click here
+        </button>{' '}
+        to add your first beer!
       </EmptyMessage>
     );
   }
 
-  return (
-    <main className="@container">
-      <AddNewBeerForm />
-    </main>
-  );
+  return <main className="@container">{/* <AddNewBeerForm /> */}</main>;
 }
 
 export default MyBeersList;
