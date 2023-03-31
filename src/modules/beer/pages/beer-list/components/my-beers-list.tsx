@@ -2,7 +2,7 @@ import React from 'react';
 
 import EmptyMyBeerList from './empty-my-beer-list';
 import BeerItem from 'src/modules/beer/components/beer-item';
-import { useByBeerListStore } from '../stores/use-my-beerlist.store';
+import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 
 function MyBeersList() {
   const myBeers = useByBeerListStore((state) => state.beers);

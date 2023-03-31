@@ -6,7 +6,7 @@ import { Formik, Form } from 'formik';
 import AppButton from 'src/components/app-button';
 import { IBeer } from 'src/modules/beer/beer.types';
 import InputField from 'src/components/formik/InputField';
-import { useByBeerListStore } from '../stores/use-my-beerlist.store';
+import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 
 interface IFormValues {
