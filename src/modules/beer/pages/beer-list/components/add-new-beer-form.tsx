@@ -40,7 +40,6 @@ function AddNewBeerForm() {
           id: uuidv4(),
           name: values.beerName,
           tagline: values.tagLine,
-          image_url: '/src/assets/houzz-beer.jpg',
           description: values.description
         };
 

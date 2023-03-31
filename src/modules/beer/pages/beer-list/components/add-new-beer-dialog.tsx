@@ -2,7 +2,7 @@ import React from 'react';
 
 import ModalDialog from 'src/components/ModalDialog';
 import AddNewBeerForm from './add-new-beer-form';
-import houzzBeerImage from 'src/assets/houzz-beer.jpg';
+import houzzBeerImage from 'src/assets/houzz-beer.png';
 import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 
 function AddNewBeerDialog() {
