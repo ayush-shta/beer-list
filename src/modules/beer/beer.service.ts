@@ -1,4 +1,4 @@
-import { httpInstance } from '../../services/http';
+import { httpInstance } from 'src/services/http';
 
 const BASE_BEERS_URL = './beers';
 
