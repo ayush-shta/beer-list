@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form } from 'formik';
 
 import { IBeer } from 'src/modules/beer/beer.types';
-import FormFooter from 'src/components/formik/FormFooter';
-import InputField from 'src/components/formik/InputField';
+import FormFooter from 'src/components/formik/form-footer';
+import InputField from 'src/components/formik/input-field';
 import { useByBeerListStore } from '../stores/use-my-beer-list.store';
 import { useAddBeerDialogStore } from '../stores/use-add-beer-dialog.store';
 

@@ -24,7 +24,7 @@ function BeerItem(props: IBeerProps) {
 
         return `Ingredients: ${ingredientsList.join(', ')}`;
       })(),
-    []
+    [ingredients]
   );
 
   return (
