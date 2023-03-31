@@ -1,10 +1,13 @@
 import React from 'react';
 import * as Yup from 'yup';
-import { Formik, Form, FormikHelpers } from 'formik';
+import { v4 as uuidv4 } from 'uuid';
+import { Formik, Form } from 'formik';
 
 import AppButton from 'src/components/app-button';
 import InputField from 'src/components/formik/InputField';
 import { useBeerListContext } from '../beer-list.context';
+import { useByBeerListStore } from '../stores/use-my-beerlist.store';
+import { IBeer } from 'src/modules/beer/beer.types';
 
 interface IFormValues {
   beerName: string;
@@ -24,19 +27,29 @@ const AddNewBeerSchema = Yup.object().shape({
   description: Yup.string().required('Description is required')
 });
 
-const handleSubmit = (values: IFormValues, { setSubmitting }: FormikHelpers<IFormValues>) => {
-  setTimeout(() => {
-    console.log('values', values);
-
-    setSubmitting(false);
-  }, 1000);
-};
-
 function AddNewBeerForm() {
   const { hideAddBeerForm } = useBeerListContext();
+  const addBeer = useByBeerListStore((state) => state.addBeer);
 
   return (
-    <Formik initialValues={initialFormValues} validationSchema={AddNewBeerSchema} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialFormValues}
+      validationSchema={AddNewBeerSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        const newBeer: IBeer = {
+          id: uuidv4(),
+          name: values.beerName,
+          tagline: values.tagLine,
+          image_url: '/src/assets/houzz-beer.jpg',
+          description: values.description
+        };
+
+        addBeer(newBeer);
+
+        setSubmitting(false);
+        hideAddBeerForm();
+      }}
+    >
       {({ isSubmitting }) => (
         <Form>
           <InputField name="beerName" labelText="Beer Name" isRequired />

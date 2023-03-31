@@ -15,12 +15,14 @@ function ModalDialog(props: IModalDialogProps) {
   }
 
   return createPortal(
-    <div className="relative z-10 p-16" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-gray bg-opacity-75 transition-opacity" />
-      <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg p-8">
-          <h3 className="text-3xl font-semibold mb-8">{title}</h3>
-          {children}
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+          <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg p-8">
+            <h3 className="text-3xl font-semibold mb-8">{title}</h3>
+            {children}
+          </div>
         </div>
       </div>
     </div>,
